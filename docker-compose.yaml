@@ -1,0 +1,15 @@
+services:
+  metric-app:
+    build: ./container
+    container_name: metric_checker
+    privileged: true
+    volumes:
+      # Persistent volume for your data
+      - ./data:/root/data
+      # Required mounts for systemd to function
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    # Keeping the container open
+    stdin_open: true
+    tty: true
