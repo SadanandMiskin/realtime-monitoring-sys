@@ -3,7 +3,7 @@ Description=A timer for metric_checkup.Service for running 'X' timer
 
 [Timer]
 OnBootSec=1min
-OnUnitActiveSec=5min
+OnUnitActiveSec=2min
 Unit=metric_monitor.service
 
 [Install]

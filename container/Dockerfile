@@ -23,7 +23,7 @@ COPY ./systemd/metric_monitor.timer /etc/systemd/system
 
 # COPY ./a.sh ./
 RUN chmod +x /root/*.sh
-
+RUN systemctl enable metric_monitor.timer
 # systemd requires a different entrypoint than a standard shell
 STOPSIGNAL SIGRTMIN+3
 CMD [ "/lib/systemd/systemd" ]

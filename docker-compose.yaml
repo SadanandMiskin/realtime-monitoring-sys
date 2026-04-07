@@ -5,7 +5,8 @@ services:
     privileged: true
 
     environment:
-      - container=docker
+      # - container=docker
+      - TZ=Asia/Kolkata
 
     volumes:
       - ./data:/root/data:Z
@@ -15,6 +16,9 @@ services:
     #   - "host.containers.internal:10.0.2.2"  # ✅ Podman-compatible
 
     network_mode: host
+
+    # environment:
+    #   - TZ: "America/Los_Angeles"
 
     stdin_open: true
     tty: true
