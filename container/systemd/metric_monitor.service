@@ -1,0 +1,9 @@
+[Unit]
+Description=CPU, Memory, Storage Monitoring system
+After=networks.target
+
+[Service]
+ExecStart=/root/metric_checkup.sh
+
+[Install]
+WantedBy=multi-user.target

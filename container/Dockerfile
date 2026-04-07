@@ -18,6 +18,9 @@ ENV container docker
 # Copy your scripts
 WORKDIR /root
 COPY ./metric_checkup.sh ./
+COPY ./systemd/metric_monitor.service /etc/systemd/system
+COPY ./systemd/metric_monitor.timer /etc/systemd/system
+
 # COPY ./a.sh ./
 RUN chmod +x /root/*.sh
 

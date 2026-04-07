@@ -1,0 +1,10 @@
+[Unit]
+Description=A timer for metric_checkup.Service for running 'X' timer
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=5min
+Unit=metric_monitor.service
+
+[Install]
+WantedBy=multi-user.target
