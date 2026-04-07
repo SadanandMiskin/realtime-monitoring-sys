@@ -3,13 +3,18 @@ services:
     build: ./container
     container_name: metric_checker
     privileged: true
+
+    environment:
+      - container=docker
+
     volumes:
-      # Persistent volume for your data
-      - ./data:/root/data
-      # Required mounts for systemd to function
+      - ./data:/root/data:Z
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-    # Keeping the container open
+
+    # extra_hosts:
+    #   - "host.containers.internal:10.0.2.2"  # ✅ Podman-compatible
+
+    network_mode: host
+
     stdin_open: true
     tty: true

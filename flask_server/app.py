@@ -8,6 +8,11 @@ UPLOAD_FOLDER = 'uploads'
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
 
+
+@app.route("/", methods=["GET"])
+def get_req():
+    return jsonify({"msg": "hello"})
+
 @app.route("/alert", methods=["POST"])
 def handle_alert():
     if 'file' not in request.files:

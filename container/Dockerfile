@@ -8,9 +8,10 @@ RUN apt-get update && apt-get install -y \
     systemd \
     systemd-sysv \
     curl \
+    nano \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
+    # apt update
 # Ensure the container knows it's running in Docker
 ENV container docker
 
