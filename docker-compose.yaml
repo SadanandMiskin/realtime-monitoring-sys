@@ -2,23 +2,23 @@ services:
   metric-app:
     build: ./container
     container_name: metric_checker
+
     privileged: true
 
     environment:
-      # - container=docker
+      - container=docker
       - TZ=Asia/Kolkata
 
     volumes:
       - ./data:/root/data:Z
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
 
-    # extra_hosts:
-    #   - "host.containers.internal:10.0.2.2"  # ✅ Podman-compatible
+    tmpfs:
+      - /run
+      - /run/lock
+      - /tmp
 
     network_mode: host
-
-    # environment:
-    #   - TZ: "America/Los_Angeles"
 
     stdin_open: true
     tty: true
