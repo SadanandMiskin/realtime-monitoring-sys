@@ -1,0 +1,10 @@
+[Unit]
+Description=Run logrotate every week
+
+[Timer]
+OnBootSec=1min
+OnCalendar=weekly
+Persistent=true
+
+[Install]
+WantedBy=timers.target

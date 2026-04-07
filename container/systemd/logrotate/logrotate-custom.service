@@ -1,0 +1,6 @@
+[Unit]
+Description=Run custom logrotate
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/logrotate /etc/logrotate.d/metric_log.conf
